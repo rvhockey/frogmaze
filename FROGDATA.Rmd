@@ -1,0 +1,4 @@
+# DATA PROCESSING FOR MASTER'S THESIS
+# Cleaned up data by seperating by type of data collected, each row name is a different subject
+# for past analysis, i've used repeated measures ANOVA (sex x day). could possibly use an unweighted-means ANOVA (not sure of difference)
+anova(success1)

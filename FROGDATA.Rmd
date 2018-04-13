@@ -7,24 +7,67 @@ output:
 ### data from 2 experiments (two-choice maze) - experiment 1 had 24 subjects and experiment 2 had 12 subjects
 ### subjects were trained daily 3 trials per day
 ### data collected includes success (0 or 1 for each trial, 0 to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3 for each day), and position errors (no restricting parameters)
-## random effects include SUB ###
-## fixed effects include SEX and DAY ###
 
-### first upload data for each experiment
+# main relationships of interest
+## how is success predicted by which day of the experiment?
+## how is success predicted by sex?
+## how are errors predicted by day/sex?
+## how do errors vary 
+
+## response variables are SUCCESS, P_errors and NC_errors ##
+## random effects include SUB ##
+## fixed effects include SEX ##
+
+### first, upload data for each experiment
 exp1 <- read.csv("exp1.csv", header = TRUE)
 exp2 <- read.csv("exp2.csv", header = TRUE)
 
-### the model ###
+# the model #
 # the goal is to model success as a function of day
 
-```{r}
+```{r echo=TRUE}
 glm <- glmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
 ```
 
 ## OK then, guess I'll just use lmer...
 
-```{r}
-lm <- lmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
-print(lm)
+```{r echo=TRUE}
+lm1a <- lmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
+summary(lm1a)
 ```
-## can't make heads or tails of this...
+```{r}
+lm1b <- lmer(SUCCESS ~ DAY + SEX + (DAY|SUB), data = exp1)
+summary(lm1b)
+```
+
+## of these two models, it seems more accurate to treat SUB as a random effect with a random slope, so let's use lm1b
+## going to try and make a null model for lm1b
+
+```{r}
+lm1b.null <- lmer(SUCCESS ~ SEX + (DAY|SUB), data = exp1, REML=FALSE)
+lm1b.forLRT <- lmer(SUCCESS ~ DAY + SEX + (DAY|SUB), data = exp1, REML=FALSE)
+anova(lm1b.forLRT, lm1b.null)
+```
+
+### based on this, it seems that DAY in fact had a large effect on success. can we say that this means they learned?
+
+
+### OK, gonna try to do a Likelihood Ratio Test now, except looking at the effect of sex on success
+
+
+```{r}
+lm1c <- lmer(SUCCESS ~ SEX + (1|DAY) + (1|SUB), data = exp1, REML=FALSE)
+summary(lm1c)
+```
+
+
+```{r}
+lm1c.null <- lmer(SUCCESS ~ (1|DAY) + (1|SUB), data = exp1, REML=FALSE)
+summary(lm1c)
+```
+
+```{r}
+anova(lm1c, lm1c.null)
+```
+
+### Sex had no effect on success p = 0.66

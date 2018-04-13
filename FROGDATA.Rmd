@@ -1,11 +1,30 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # DATA PROCESSING FOR MASTER'S THESIS
-# data from 2 experiments (two-choice maze) - experiment 1 had 24 subjects and experiment 2 had 12 subjects
-# subjects were trained daily 3 trials per day
-# data collected includes success (0 or 1 for each trial, 0 to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3 for each day), and position errors (no restricting parameters)
-### random effects include SUCCESS, NC_errors, P_errors ###
-### fixed effects include SEX and DAY ###
+### data from 2 experiments (two-choice maze) - experiment 1 had 24 subjects and experiment 2 had 12 subjects
+### subjects were trained daily 3 trials per day
+### data collected includes success (0 or 1 for each trial, 0 to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3 for each day), and position errors (no restricting parameters)
+## random effects include SUB ###
+## fixed effects include SEX and DAY ###
 
-# first upload data for each experiment
+### first upload data for each experiment
 exp1 <- read.csv("exp1.csv", header = TRUE)
 exp2 <- read.csv("exp2.csv", header = TRUE)
-# 
+
+### the model ###
+# the goal is to model success as a function of day
+
+```{r}
+glm <- glmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
+```
+
+## OK then, guess I'll just use lmer...
+
+```{r}
+lm <- lmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
+print(lm)
+```
+## can't make heads or tails of this...

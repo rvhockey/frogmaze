@@ -25,7 +25,7 @@ require("knitr")
 opts_knit$set(root.dir = "/Users/rventura/Desktop/FROGDATA/frogmaze")
 ```
 
-I've decided to use centered and scale time variables as it usually provides more stable fits with GLMM - thanks James!
+I've decided to use centered and scale time variables as it usually provides more stable fits with GLMM - thanksfor this tip James!
 
 ```{r}
 library(dplyr)
@@ -39,6 +39,8 @@ exp2 <- mutate(exp2,daycent=(DAY-mean(DAY)/sd(DAY)))
 exp2a <- mutate(exp2a,daycent=(DAY-mean(DAY)/sd(DAY)))
 ```
 
+I also wanted to see what would happen if I took out the lowest performing frogs in each trial - the exp1a and exp2a datasets represent have 3 and 1 subjects removed from them, respectively.They ended up making the models worse, so I've decided to use the original data with all subjects included.
+
 First, I needed to decided whether or not to use the random slope model or the random intercept model for my particular random effects. This was done with SUCCESS data first...
 
 ```{r echo=TRUE}
@@ -47,17 +49,6 @@ SUCCESS1glmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (da
 SUCCESS1glmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp1,family=binomial)
 anova(SUCCESS1glmmfullranslope,SUCCESS1glmmfull)
 ```
-
-```{r}
-SUCCESS1aglmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp1a,family=binomial)
-SUCCESS1aglmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp1a,family=binomial)
-anova(SUCCESS1glmmfullranslope,SUCCESS1glmmfull)
-SUCCESS2aglmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp2a,family=binomial)
-SUCCESS2aglmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp2a,family=binomial)
-anova(SUCCESS2glmmfullranslope,SUCCESS2glmmfull)
-```
-
-
 
 ```{r}
 SUCCESS2glmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
@@ -109,23 +100,6 @@ SUCCESS1glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp1,family
 
 anova(SUCCESS1glmmnull,SUCCESS1glmmday,SUCCESS1glmmadd,SUCCESS1glmmfull,test="Chisq")
 ```
-
-```{r}
-SUCCESS1aglmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp1a,family=binomial)
-SUCCESS1aglmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp1a,family=binomial)
-SUCCESS1aglmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp1a,family=binomial)
-
-anova(SUCCESS1aglmmnull,SUCCESS1aglmmday,SUCCESS1aglmmadd,SUCCESS1aglmmfull,test="Chisq")
-```
-
-```{r}
-SUCCESS2aglmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp2a,family=binomial)
-SUCCESS2aglmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp2a,family=binomial)
-SUCCESS2aglmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp2a,family=binomial)
-
-anova(SUCCESS2aglmmnull,SUCCESS2aglmmday,SUCCESS2aglmmadd,SUCCESS2aglmmfull,test="Chisq")
-```
-
 
 This shows some small evidence that there is an interaction between sex and time, i.e. that frogs from different sexes have different trends in their abilities.  The p-value here is .052 (changed to .056 when I updated data...?) which puts us in the uncomfortable position of neither being able to rule out or in this interaction.
 

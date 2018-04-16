@@ -9,24 +9,240 @@ output:
 ### data collected includes success (0 or 1 for each trial, 0 to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3 for each day), and position errors (no restricting parameters)
 
 # main relationships of interest
-## how is success predicted by which day of the experiment?
-## how is success predicted by sex?
-## how are errors predicted by day/sex?
-## how do errors vary 
+### how is success predicted by which day of training it occured on?
+### how is success predicted by sex?
+### how are errors predicted by day/sex?
+### how do errors vary with success?
 
 ## response variables are SUCCESS, P_errors and NC_errors ##
 ## random effects include SUB ##
 ## fixed effects include SEX ##
 
-### first, upload data for each experiment
-exp1 <- read.csv("exp1.csv", header = TRUE)
-exp2 <- read.csv("exp2.csv", header = TRUE)
+# first, upload data for each experiment
 
-# the model #
-# the goal is to model success as a function of day
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "/Users/rventura/Desktop/FROGDATA/frogmaze")
+```
+
+I've decided to use centered and scale time variables as it usually provides more stable fits with GLMM - thanks James!
+
+```{r}
+library(dplyr)
+exp1 <- read.csv("exp1.csv", header = TRUE)
+exp1a <- read.csv("exp1a.csv", header = TRUE)
+exp2 <- read.csv("exp2.csv", header = TRUE)
+exp2a <- read.csv("exp2a.csv", header = TRUE)
+exp1 <- mutate(exp1,daycent=(DAY-mean(DAY)/sd(DAY)))
+exp1a <- mutate(exp1a,daycent=(DAY-mean(DAY)/sd(DAY)))
+exp2 <- mutate(exp2,daycent=(DAY-mean(DAY)/sd(DAY)))
+exp2a <- mutate(exp2a,daycent=(DAY-mean(DAY)/sd(DAY)))
+```
+
+First, I needed to decided whether or not to use the random slope model or the random intercept model for my particular random effects. This was done with SUCCESS data first...
 
 ```{r echo=TRUE}
-glm <- glmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
+library(lme4)
+SUCCESS1glmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp1,family=binomial)
+SUCCESS1glmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp1,family=binomial)
+anova(SUCCESS1glmmfullranslope,SUCCESS1glmmfull)
+```
+
+```{r}
+SUCCESS1aglmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp1a,family=binomial)
+SUCCESS1aglmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp1a,family=binomial)
+anova(SUCCESS1glmmfullranslope,SUCCESS1glmmfull)
+SUCCESS2aglmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp2a,family=binomial)
+SUCCESS2aglmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp2a,family=binomial)
+anova(SUCCESS2glmmfullranslope,SUCCESS2glmmfull)
+```
+
+
+
+```{r}
+SUCCESS2glmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
+SUCCESS2glmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp2,family=binomial)
+anova(SUCCESS2glmmfullranslope,SUCCESS2glmmfull)
+```
+
+Then, I did the same thing for non-contingent errors...
+
+```{r}
+NC1glmmfullranslope <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp1,family=binomial)
+NC1glmmfull <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (1|SUB), data = exp1,family=binomial)
+anova(NC1glmmfullranslope,NC1glmmfull)
+```
+
+
+
+
+```{r}
+NC2glmmfullranslope <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
+NC2glmmfull <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (1|SUB), data = exp2,family=binomial)
+anova(NC2glmmfullranslope,NC2glmmfull)
+```
+
+With the AIC and BIC values so close to each other for each model, these analyses determined that it is sufficient to use random intercepts for my random effects (1 | SUB) for both SUCCESS and NC_errors. Lastly, I want to run this test for my third dependent variable of interest, P_errors.
+
+### however, P_errors can not be run using the binomal error model that was used for SUCCESS and NC_errors, so I used the poisson model, which is better for various integers (poisson would be better to use than gamma in this situation, correct?)
+
+```{r}
+P1glmmfullranslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp1,family=poisson)
+P1glmmfull <- glmer(P_errors ~ daycent * SEX + (1|SUB), data = exp1,family=poisson)
+anova(P1glmmfullranslope,P1glmmfull)
+```
+
+```{r}
+P2glmmfullranslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp2,family=poisson)
+P2glmmfull <- glmer(P_errors ~ daycent * SEX + (1|SUB), data = exp2,family=poisson)
+anova(P2glmmfullranslope,P2glmmfull)
+```
+
+Given how close the AIC and BIC values are for both, I believe this means that the fit is fairly equal (and bad...) for each model, depsite the p value being much smaller than it was for the first two models. Not quite sure what this means, but I think it means that these two models are VERY different from each other.
+
+### Now, we can compare all of the models. Our full model looks at the INTERACTION of day and sex; another model treats sex as a fixed effect independent of day; a third model removes sex completely and looks as how success varies with day; and lastly a null model which removes all covariates.
+
+```{r}
+SUCCESS1glmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp1,family=binomial)
+SUCCESS1glmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp1,family=binomial)
+SUCCESS1glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp1,family=binomial)
+
+anova(SUCCESS1glmmnull,SUCCESS1glmmday,SUCCESS1glmmadd,SUCCESS1glmmfull,test="Chisq")
+```
+
+```{r}
+SUCCESS1aglmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp1a,family=binomial)
+SUCCESS1aglmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp1a,family=binomial)
+SUCCESS1aglmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp1a,family=binomial)
+
+anova(SUCCESS1aglmmnull,SUCCESS1aglmmday,SUCCESS1aglmmadd,SUCCESS1aglmmfull,test="Chisq")
+```
+
+```{r}
+SUCCESS2aglmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp2a,family=binomial)
+SUCCESS2aglmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp2a,family=binomial)
+SUCCESS2aglmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp2a,family=binomial)
+
+anova(SUCCESS2aglmmnull,SUCCESS2aglmmday,SUCCESS2aglmmadd,SUCCESS2aglmmfull,test="Chisq")
+```
+
+
+This shows some small evidence that there is an interaction between sex and time, i.e. that frogs from different sexes have different trends in their abilities.  The p-value here is .052 (changed to .056 when I updated data...?) which puts us in the uncomfortable position of neither being able to rule out or in this interaction.
+
+```{r}
+SUCCESS2glmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp2,family=binomial)
+SUCCESS2glmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp2,family=binomial)
+SUCCESS2glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp2,family=binomial)
+
+anova(SUCCESS2glmmnull,SUCCESS2glmmday,SUCCESS2glmmadd,SUCCESS2glmmfull,test="Chisq")
+```
+
+This shows a similar result for experiment 2 - there is slight evidence suggesting that frogs from different sexes have different trends in their ability.
+
+
+### Now to do the same thing for NC_errors...
+
+```{r}
+NC1glmmadd <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + SEX + (1|SUB), data = exp1,family=binomial)
+NC1glmmday <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + (1|SUB), data = exp1,family=binomial)
+NC1glmmnull <- glmer(cbind(NC_errors,3-NC_errors) ~ (1|SUB), data = exp1,family=binomial)
+
+anova(NC1glmmnull,NC1glmmday,NC1glmmadd,NC1glmmfull,test="Chisq")
+```
+
+```{r}
+NC2glmmadd <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + SEX + (1|SUB), data = exp2,family=binomial)
+NC2glmmday <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + (1|SUB), data = exp2,family=binomial)
+NC2glmmnull <- glmer(cbind(NC_errors,3-NC_errors) ~ (1|SUB), data = exp2,family=binomial)
+
+anova(NC2glmmnull,NC2glmmday,NC2glmmadd,NC2glmmfull,test="Chisq")
+```
+
+Both of these analyses suggest that there is no intereaction between sex and NC_errors.
+
+### Lastly, P_errors
+
+```{r}
+P1glmmadd <- glmer(P_errors ~ daycent + SEX + (1|SUB), data = exp1,family=poisson)
+P1glmmday <- glmer(P_errors ~ daycent + (1|SUB), data = exp1,family=poisson)
+P1glmmnull <- glmer(P_errors ~ (1|SUB), data = exp1,family=poisson)
+
+anova(P1glmmnull,P1glmmday,P1glmmadd,P1glmmfull,test="Chisq")
+```
+
+```{r}
+P2glmmadd <- glmer(P_errors ~ daycent + SEX + (1|SUB), data = exp2,family=poisson)
+P2glmmday <- glmer(P_errors ~ daycent + (1|SUB), data = exp2,family=poisson)
+P2glmmnull <- glmer(P_errors ~ (1|SUB), data = exp2,family=poisson)
+
+anova(P2glmmnull,P2glmmday,P2glmmadd,P2glmmfull,test="Chisq")
+```
+
+This shows that there is no interaction between sex and P_error, but that P_errors vary significantly with the day for both experiments - could I possibly use this to say that if P_errors decrease signficantly by day and if SUCCESS increases significantly by day, that the frogs as a whole learned from this experiment??
+
+
+#Another way of conducting inference on these models is to simply generate bootstrap confidence intervals.
+
+```{r}
+set.seed(4)
+bootconf <- confint(SUCCESS1glmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+```{r}
+set.seed(4)
+bootconf <- confint(SUCCESS2glmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+
+This comes to a very similar, unfortunately ambiguous result.  Regardless, there is strong evidence that there is a change in the success rate through time and then slope is positive, leading to the conclusion that frogs are getting better in time. The interaction term would suggest, if significant, that males learn more slowly than females.  
+
+```{r}
+set.seed(4)
+bootconf <- confint(NC1glmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+```{r}
+set.seed(4)
+bootconf <- confint(NC2glmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+```{r}
+set.seed(4)
+bootconf <- confint(P1glmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+```{r}
+set.seed(4)
+bootconf <- confint(P2glmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+
+We can plot the predictions of the model with the data as below.  Note I have added two types of predictions to the data frame, one, the `fullpoppredict` is the population level predictions (average of all the individuals), while `fullcondpredict` is the prediction at the level of each of the individuals.
+
+
+```{r}
+library(ggplot2)
+theme_set(theme_bw())
+exp1$fullpoppredict<- predict(frogglmmfull, 
+                           re.form=NA,type="response")
+exp1$fullcondpredict<- predict(frogglmmfull, 
+                           type="response")
+
+ggplot(exp1,aes(x=DAY,y=SUCCESS,color=SEX))+
+  geom_point(position=position_jitter(height=.1,width=.1))+
+  geom_line(aes(y=fullpoppredict*3))+
+  geom_line(aes(y=fullcondpredict*3,group=SUB),alpha=.25)
+```
+
+
+
+
 ```
 
 ## OK then, guess I'll just use lmer...

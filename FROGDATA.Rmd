@@ -1,10 +1,11 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
-# DATA PROCESSING FOR MASTER'S THESIS
-### data from 2 experiments (two-choice maze) - experiment 1 had 24 subjects and experiment 2 had 12 subjects
+# LEARNING IN TUNGARA FROGS: CAN THEY LEARN A MAZE? 
+## initial hypothesis: females are better learners than males based on behavioral requirements for breeding.
+### data from 2 experiments (two-choice mazes) - experiment 1 had 24 subjects and experiment 2 had 12 subjects
 ### subjects were trained daily 3 trials per day
 ### data collected includes success (0 or 1 for each trial, 0 to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3 for each day), and position errors (no restricting parameters)
 
@@ -14,11 +15,11 @@ output:
 ### how are errors predicted by day/sex?
 ### how do errors vary with success?
 
-## response variables are SUCCESS, P_errors and NC_errors ##
-## random effects include SUB ##
-## fixed effects include SEX ##
+## dependent/response variables are SUCCESS, P_errors and NC_errors ##
+## random effect is SUB ##
+## fixed effect is SEX ##
 
-# first, upload data for each experiment
+# first, I uploaded the data for each of the experiments
 
 ```{r "setup", include=FALSE}
 require("knitr")
@@ -29,89 +30,127 @@ I've decided to use centered and scale time variables as it usually provides mor
 
 ```{r}
 library(dplyr)
+exp0 <- read.csv("YLexp0byday.csv", header = TRUE)
 exp1 <- read.csv("exp1.csv", header = TRUE)
 exp1a <- read.csv("exp1a.csv", header = TRUE)
+exp1b <- read.csv("exp1b.csv", header = TRUE)
 exp2 <- read.csv("exp2.csv", header = TRUE)
 exp2a <- read.csv("exp2a.csv", header = TRUE)
-exp1 <- mutate(exp1,daycent=(DAY-mean(DAY)/sd(DAY)))
-exp1a <- mutate(exp1a,daycent=(DAY-mean(DAY)/sd(DAY)))
-exp2 <- mutate(exp2,daycent=(DAY-mean(DAY)/sd(DAY)))
-exp2a <- mutate(exp2a,daycent=(DAY-mean(DAY)/sd(DAY)))
+exp0 <- mutate(exp0,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1 <- mutate(exp1,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1a <- mutate(exp1a,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1b <- mutate(exp1b,daycent=(DAY-mean(DAY))/sd(DAY))
+exp2 <- mutate(exp2,daycent=(DAY-mean(DAY))/sd(DAY))
+exp2a <- mutate(exp2a,daycent=(DAY-mean(DAY))/sd(DAY))
+
 ```
 
-I also wanted to see what would happen if I took out the lowest performing frogs in each trial - the exp1a and exp2a datasets represent have 3 and 1 subjects removed from them, respectively.They ended up making the models worse, so I've decided to use the original data with all subjects included.
+I also wanted to see what would happen if I took out the lowest performing frogs in each trial - the exp1a and exp2a datasets represent have three subjects (5, 13, and 24) and one subject (9) removed from them, respectively. The exp1b file has subjects 5 and 24 removed. Attempting to remove outliers who didn't learn seemed to make the models fit worse, so I've decided to use the original data with all subjects included after all.
 
-First, I needed to decided whether or not to use the random slope model or the random intercept model for my particular random effects. This was done with SUCCESS data first...
+Now that I have my data uploaded...I first needed to decided whether or not to use the random slope model or the random intercept model for my particular random effects. This was done with SUCCESS data first...
 
 ```{r echo=TRUE}
 library(lme4)
-SUCCESS1glmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp1,family=binomial)
+SUCCESS1glmmfullrandomslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp1,family=binomial)
 SUCCESS1glmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp1,family=binomial)
-anova(SUCCESS1glmmfullranslope,SUCCESS1glmmfull)
+anova(SUCCESS1glmmfullrandomslope,SUCCESS1glmmfull)
 ```
 
+
 ```{r}
-SUCCESS2glmmfullranslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
+SUCCESS2glmmfullrandomslope <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
 SUCCESS2glmmfull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp2,family=binomial)
-anova(SUCCESS2glmmfullranslope,SUCCESS2glmmfull)
+anova(SUCCESS2glmmfullrandomslope,SUCCESS2glmmfull)
 ```
 
-Then, I did the same thing for non-contingent errors...
+```{r}
+library(lme4)
+SUCCESS0glmmfullrandomslope <- glmer(cbind(SUCCESS,2-SUCCESS) ~ daycent * SEX + (daycent|SUB), data = exp0,family=binomial)
+SUCCESS0glmmfull <- glmer(cbind(SUCCESS,2-SUCCESS) ~ daycent * SEX + (1|SUB), data = exp0,family=binomial)
+anova(SUCCESS0glmmfullrandomslope,SUCCESS0glmmfull)
+```
+
+
+
+Use ranslop for SUCCESS2 and SUCCESS0....
+
+Then, I did the same thing for my non-contingent errors...
 
 ```{r}
-NC1glmmfullranslope <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp1,family=binomial)
+NC1glmmfullrandomslope <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp1,family=binomial)
 NC1glmmfull <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (1|SUB), data = exp1,family=binomial)
-anova(NC1glmmfullranslope,NC1glmmfull)
+anova(NC1glmmfullrandomslope,NC1glmmfull)
 ```
-
-
-
 
 ```{r}
-NC2glmmfullranslope <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
+NC2glmmfullrandomslope <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp2,family=binomial)
 NC2glmmfull <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent * SEX + (1|SUB), data = exp2,family=binomial)
-anova(NC2glmmfullranslope,NC2glmmfull)
+anova(NC2glmmfullrandomslope,NC2glmmfull)
 ```
 
-With the AIC and BIC values so close to each other for each model, these analyses determined that it is sufficient to use random intercepts for my random effects (1 | SUB) for both SUCCESS and NC_errors. Lastly, I want to run this test for my third dependent variable of interest, P_errors.
+```{r}
+NC0glmmfullrandomslope <- glmer(cbind(NC_errors,2-NC_errors) ~ daycent * SEX + (daycent|SUB), data = exp0,family=binomial)
+NC0glmmfull <- glmer(cbind(NC_errors,2-NC_errors) ~ daycent * SEX + (1|SUB), data = exp0,family=binomial)
+anova(NC0glmmfullrandomslope,NC0glmmfull)
+```
+
+
+
+With the AIC and BIC values so close to each other for each model, these analyses determined that it is sufficient to use random intercepts for my random effects (1 | SUB) for both SUCCESS and NC_errors to make the models a bit simpler. Lastly, I want to run this test for my third dependent variable of interest, P_errors...
 
 ### however, P_errors can not be run using the binomal error model that was used for SUCCESS and NC_errors, so I used the poisson model, which is better for various integers (poisson would be better to use than gamma in this situation, correct?)
 
 ```{r}
-P1glmmfullranslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp1,family=poisson)
+P1glmmfullrandomslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp1,family=poisson)
 P1glmmfull <- glmer(P_errors ~ daycent * SEX + (1|SUB), data = exp1,family=poisson)
-anova(P1glmmfullranslope,P1glmmfull)
+anova(P1glmmfullrandomslope,P1glmmfull)
 ```
 
 ```{r}
-P2glmmfullranslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp2,family=poisson)
+P2glmmfullrandomslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp2,family=poisson)
 P2glmmfull <- glmer(P_errors ~ daycent * SEX + (1|SUB), data = exp2,family=poisson)
-anova(P2glmmfullranslope,P2glmmfull)
+anova(P2glmmfullrandomslope,P2glmmfull)
+```
+
+```{r}
+P0glmmfullrandomslope <- glmer(P_errors ~ daycent * SEX + (daycent|SUB), data = exp0,family=poisson)
+P0glmmfull <- glmer(P_errors ~ daycent * SEX + (1|SUB), data = exp0,family=poisson)
+anova(P0glmmfullrandomslope,P0glmmfull)
 ```
 
 Given how close the AIC and BIC values are for both, I believe this means that the fit is fairly equal (and bad...) for each model, depsite the p value being much smaller than it was for the first two models. Not quite sure what this means, but I think it means that these two models are VERY different from each other.
 
-### Now, we can compare all of the models. Our full model looks at the INTERACTION of day and sex; another model treats sex as a fixed effect independent of day; a third model removes sex completely and looks as how success varies with day; and lastly a null model which removes all covariates.
+### Now, I can compare all of the models! My full model looks at the INTERACTION of day and sex; another model (add) treats sex as a fixed effect independent of day; a third model removes sex completely and looks as how success varies with day (day); and lastly a null model removes all covariates to examine the effect of their presence (null.
 
 ```{r}
-SUCCESS1glmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp1,family=binomial)
-SUCCESS1glmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp1,family=binomial)
-SUCCESS1glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp1,family=binomial)
+SUCCESS1glmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (daycent|SUB), data = exp1,family=binomial)
+SUCCESS1glmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (daycent|SUB), data = exp1,family=binomial)
+SUCCESS1glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (daycent|SUB), data = exp1,family=binomial)
 
-anova(SUCCESS1glmmnull,SUCCESS1glmmday,SUCCESS1glmmadd,SUCCESS1glmmfull,test="Chisq")
+anova(SUCCESS1glmmfullrandomslope, SUCCESS1glmmadd, SUCCESS1glmmday, SUCCESS1glmmnull, test="Chisq")
 ```
 
-This shows some small evidence that there is an interaction between sex and time, i.e. that frogs from different sexes have different trends in their abilities.  The p-value here is .052 (changed to .056 when I updated data...?) which puts us in the uncomfortable position of neither being able to rule out or in this interaction.
+This shows some small evidence that there is an interaction between sex and day (frogs from different sexes have different trends in their abilities).  The p-value here is .057, which is borderline significant
 
 ```{r}
-SUCCESS2glmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (1|SUB), data = exp2,family=binomial)
-SUCCESS2glmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (1|SUB), data = exp2,family=binomial)
-SUCCESS2glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (1|SUB), data = exp2,family=binomial)
+SUCCESS2glmmadd <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + SEX + (daycent|SUB), data = exp2,family=binomial)
+SUCCESS2glmmday <- glmer(cbind(SUCCESS,3-SUCCESS) ~ daycent + (daycent|SUB), data = exp2,family=binomial)
+SUCCESS2glmmnull <- glmer(cbind(SUCCESS,3-SUCCESS) ~ (daycent|SUB), data = exp2,family=binomial)
 
-anova(SUCCESS2glmmnull,SUCCESS2glmmday,SUCCESS2glmmadd,SUCCESS2glmmfull,test="Chisq")
+anova(SUCCESS2glmmfullrandomslope, SUCCESS2glmmadd, SUCCESS2glmmday, SUCCESS2glmmnull, test="Chisq")
 ```
 
-This shows a similar result for experiment 2 - there is slight evidence suggesting that frogs from different sexes have different trends in their ability.
+This result shows no evidence for their being an interaction between sex and day for my second experiment.
+
+```{r}
+SUCCESS0glmmadd <- glmer(cbind(SUCCESS,2-SUCCESS) ~ daycent + SEX + (daycent|SUB), data = exp0,family=binomial)
+SUCCESS0glmmday <- glmer(cbind(SUCCESS,2-SUCCESS) ~ daycent + (daycent|SUB), data = exp0,family=binomial)
+SUCCESS0glmmnull <- glmer(cbind(SUCCESS,2-SUCCESS) ~ (daycent|SUB), data = exp0,family=binomial)
+
+anova(SUCCESS0glmmfullrandomslope, SUCCESS0glmmadd, SUCCESS0glmmday, SUCCESS0glmmnull, test="Chisq")
+```
+
+
 
 
 ### Now to do the same thing for NC_errors...
@@ -121,7 +160,7 @@ NC1glmmadd <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + SEX + (1|SUB), data
 NC1glmmday <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + (1|SUB), data = exp1,family=binomial)
 NC1glmmnull <- glmer(cbind(NC_errors,3-NC_errors) ~ (1|SUB), data = exp1,family=binomial)
 
-anova(NC1glmmnull,NC1glmmday,NC1glmmadd,NC1glmmfull,test="Chisq")
+anova(NC1glmmfull, NC1glmmadd, NC1glmmday, NC1glmmnull, test="Chisq")
 ```
 
 ```{r}
@@ -129,33 +168,55 @@ NC2glmmadd <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + SEX + (1|SUB), data
 NC2glmmday <- glmer(cbind(NC_errors,3-NC_errors) ~ daycent + (1|SUB), data = exp2,family=binomial)
 NC2glmmnull <- glmer(cbind(NC_errors,3-NC_errors) ~ (1|SUB), data = exp2,family=binomial)
 
-anova(NC2glmmnull,NC2glmmday,NC2glmmadd,NC2glmmfull,test="Chisq")
+anova(NC2glmmfull, NC2glmmadd, NC2glmmday, NC2glmmnull, test="Chisq")
 ```
 
-Both of these analyses suggest that there is no intereaction between sex and NC_errors.
+
+running NC error analysis for Yuxiang's data, based on chisq above, the random slope model is a better fit, which is very unlike the NC error data for my data...my experiments showed a much stronger decrease in NC errors
+```{r}
+NC0glmmadd <- glmer(cbind(NC_errors,2-NC_errors) ~ daycent + SEX + (daycent|SUB), data = exp0,family=binomial)
+NC0glmmday <- glmer(cbind(NC_errors,2-NC_errors) ~ daycent + (daycent|SUB), data = exp0,family=binomial)
+NC0glmmnull <- glmer(cbind(NC_errors,2-NC_errors) ~ (daycent|SUB), data = exp0,family=binomial)
+
+anova(NC0glmmfullrandomslope, NC0glmmadd, NC0glmmday, NC0glmmnull, test="Chisq")
+```
+
+
+
+Both of these analyses FOR MY EXPERIMENTS suggest that there is no interaction between sex and NC_errors.
 
 ### Lastly, P_errors
 
 ```{r}
-P1glmmadd <- glmer(P_errors ~ daycent + SEX + (1|SUB), data = exp1,family=poisson)
-P1glmmday <- glmer(P_errors ~ daycent + (1|SUB), data = exp1,family=poisson)
-P1glmmnull <- glmer(P_errors ~ (1|SUB), data = exp1,family=poisson)
+P1glmmadd <- glmer(P_errors ~ daycent + SEX + (daycent|SUB), data = exp1,family=poisson)
+P1glmmday <- glmer(P_errors ~ daycent + (daycent|SUB), data = exp1,family=poisson)
+P1glmmnull <- glmer(P_errors ~ (daycent|SUB), data = exp1,family=poisson)
 
-anova(P1glmmnull,P1glmmday,P1glmmadd,P1glmmfull,test="Chisq")
+anova(P1glmmfullrandomslope, P1glmmadd, P1glmmday, P1glmmnull, test="Chisq")
 ```
 
 ```{r}
-P2glmmadd <- glmer(P_errors ~ daycent + SEX + (1|SUB), data = exp2,family=poisson)
-P2glmmday <- glmer(P_errors ~ daycent + (1|SUB), data = exp2,family=poisson)
-P2glmmnull <- glmer(P_errors ~ (1|SUB), data = exp2,family=poisson)
+P2glmmadd <- glmer(P_errors ~ daycent + SEX + (daycent|SUB), data = exp2,family=poisson)
+P2glmmday <- glmer(P_errors ~ daycent + (daycent|SUB), data = exp2,family=poisson)
+P2glmmnull <- glmer(P_errors ~ (daycent|SUB), data = exp2,family=poisson)
 
-anova(P2glmmnull,P2glmmday,P2glmmadd,P2glmmfull,test="Chisq")
+anova(P2glmmfullrandomslope, P2glmmadd, P2glmmday, P2glmmnull, test="Chisq")
 ```
 
-This shows that there is no interaction between sex and P_error, but that P_errors vary significantly with the day for both experiments - could I possibly use this to say that if P_errors decrease signficantly by day and if SUCCESS increases significantly by day, that the frogs as a whole learned from this experiment??
+This shows that there is also no interaction between sex and P_error, but that P_errors vary significantly with the day for both experiments - could I possibly use this to say that if P_errors decrease signficantly by day and if SUCCESS increases significantly by day, that the frogs as a whole learned from this experiment??
+
+```{r}
+P0glmmadd <- glmer(P_errors ~ daycent + SEX + (daycent|SUB), data = exp0,family=poisson)
+P0glmmday <- glmer(P_errors ~ daycent + (daycent|SUB), data = exp0,family=poisson)
+P0glmmnull <- glmer(P_errors ~ (daycent|SUB), data = exp0,family=poisson)
+
+anova(P0glmmfullrandomslope, P0glmmadd, P0glmmday, P0glmmnull, test="Chisq")
+```
 
 
-#Another way of conducting inference on these models is to simply generate bootstrap confidence intervals.
+
+#Another way we can try to understand what these models tell us is by simply generating bootstrap confidence intervals. 
+###As the name implies, this process uses the computed model data itself to estimate the variation of statistics - essentially using the computed data to come up with confidence intervals.
 
 ```{r}
 set.seed(4)
@@ -169,8 +230,10 @@ bootconf <- confint(SUCCESS2glmmfull,method="boot",nsim=2000)
 bootconf
 ```
 
+###This comes to a very similar, unfortunately ambiguous result.  
+##Regardless, there is strong evidence that there is a change in the success rate through time and then slope is positive, leading to the conclusion that frogs are getting better in time. The interaction term would suggest, if significant, that males learn more slowly than females.  
 
-This comes to a very similar, unfortunately ambiguous result.  Regardless, there is strong evidence that there is a change in the success rate through time and then slope is positive, leading to the conclusion that frogs are getting better in time. The interaction term would suggest, if significant, that males learn more slowly than females.  
+#We can do the same thing for NC_errors as well...
 
 ```{r}
 set.seed(4)
@@ -178,11 +241,18 @@ bootconf <- confint(NC1glmmfull,method="boot",nsim=2000)
 bootconf
 ```
 
+For experiment 1, it seems that there is strong evidence that the decrease in NC_errors is significant and negative, based on the model ANOVA and these bootstrap confidence intervals.
+
+
 ```{r}
 set.seed(4)
 bootconf <- confint(NC2glmmfull,method="boot",nsim=2000)
 bootconf
 ```
+
+A similar result is seen for experiment 2 NC_errors - the slope is negative and significant, and evidence suggest frogs are making fewer NC_errors over time.
+
+#P_error bootstrapping...
 
 ```{r}
 set.seed(4)
@@ -190,74 +260,238 @@ bootconf <- confint(P1glmmfull,method="boot",nsim=2000)
 bootconf
 ```
 
+Unfortunately this result doesn't seem to reveal anything significant - although P_errors do vary significantly by day as determined by the ANOVA above, evidence suggests that the slope is positive.
+
+
 ```{r}
 set.seed(4)
 bootconf <- confint(P2glmmfull,method="boot",nsim=2000)
 bootconf
 ```
 
+#THIS IS ALL I'VE DONE SO FAR...... 
+##below is me exploring the bootstrap confidence intervals with possible outliers removed from the datasets, but as noted above, they don't seem to improve anything.
 
-We can plot the predictions of the model with the data as below.  Note I have added two types of predictions to the data frame, one, the `fullpoppredict` is the population level predictions (average of all the individuals), while `fullcondpredict` is the prediction at the level of each of the individuals.
+```{r eval=FALSE, include=FALSE}
+set.seed(4)
+bootconf <- confint(P1aglmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+```{r eval=FALSE, include=FALSE}
+set.seed(4)
+bootconf <- confint(P2aglmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+```{r eval=FALSE, include=FALSE}
+P1bglmmfull <- glmer(P_errors ~ daycent * SEX + (1|SUB), data = exp1b,family=poisson)
+set.seed(4)
+bootconf <- confint(P1bglmmfull,method="boot",nsim=2000)
+bootconf
+```
+
+#Graphing the data
+
+We can plot the predictions of the model with the data as below.  Note I have added two types of predictions to the data frame, one, the `fullpoppredict` is the population level predictions (average of all the individuals, one trendline for each sex), while `fullcondpredict` is the prediction at the level of each of the individuals (one trendline for each individual).
 
 
 ```{r}
 library(ggplot2)
 theme_set(theme_bw())
-exp1$fullpoppredict<- predict(frogglmmfull, 
+exp1$fullpoppredictS1<- predict(SUCCESS1glmmfull, 
                            re.form=NA,type="response")
-exp1$fullcondpredict<- predict(frogglmmfull, 
+exp1$fullcondpredictS1<- predict(SUCCESS1glmmfull, 
                            type="response")
 
-ggplot(exp1,aes(x=DAY,y=SUCCESS,color=SEX))+
+SUCC1 <- ggplot(exp1,aes(x=DAY,y=SUCCESS,color=SEX))+
+  geom_point(position=position_jitter(height=.15,width=.15))+
+  geom_line(aes(y=fullpoppredictS1*3), size = 2)+
+  geom_line(aes(y=fullcondpredictS1*3,group=SUB),alpha=.25)+scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+SUCC1 + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
+```
+
+
+```{r}
+theme_set(theme_bw())
+exp2$fullpoppredictS2 <- predict(SUCCESS2glmmfull, 
+                           re.form=NA,type="response")
+exp2$fullcondpredictS2 <- predict(SUCCESS2glmmfull, 
+                           type="response")
+
+SUCC2 <- ggplot(exp2,aes(x=DAY,y=SUCCESS,color=SEX))+
   geom_point(position=position_jitter(height=.1,width=.1))+
-  geom_line(aes(y=fullpoppredict*3))+
-  geom_line(aes(y=fullcondpredict*3,group=SUB),alpha=.25)
-```
-
-
-
-
-```
-
-## OK then, guess I'll just use lmer...
-
-```{r echo=TRUE}
-lm1a <- lmer(SUCCESS ~ DAY + SEX + (1|SUB), data = exp1)
-summary(lm1a)
+  geom_line(aes(y=fullpoppredictS2*3), size = 2)+
+  geom_line(aes(y=fullcondpredictS2*3,group=SUB),alpha=.25)+scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+SUCC2 + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
 ```
 ```{r}
-lm1b <- lmer(SUCCESS ~ DAY + SEX + (DAY|SUB), data = exp1)
-summary(lm1b)
-```
+theme_set(theme_bw())
+exp1$fullpoppredictNC1<- predict(NC1glmmfull, 
+                           re.form=NA,type="response")
+exp1$fullcondpredictNC1<- predict(NC1glmmfull, 
+                           type="response")
 
-## of these two models, it seems more accurate to treat SUB as a random effect with a random slope, so let's use lm1b
-## going to try and make a null model for lm1b
-
-```{r}
-lm1b.null <- lmer(SUCCESS ~ SEX + (DAY|SUB), data = exp1, REML=FALSE)
-lm1b.forLRT <- lmer(SUCCESS ~ DAY + SEX + (DAY|SUB), data = exp1, REML=FALSE)
-anova(lm1b.forLRT, lm1b.null)
-```
-
-### based on this, it seems that DAY in fact had a large effect on success. can we say that this means they learned?
-
-
-### OK, gonna try to do a Likelihood Ratio Test now, except looking at the effect of sex on success
-
-
-```{r}
-lm1c <- lmer(SUCCESS ~ SEX + (1|DAY) + (1|SUB), data = exp1, REML=FALSE)
-summary(lm1c)
-```
-
-
-```{r}
-lm1c.null <- lmer(SUCCESS ~ (1|DAY) + (1|SUB), data = exp1, REML=FALSE)
-summary(lm1c)
+NC1 <- ggplot(exp1,aes(x=DAY,y=NC_errors,color=SEX))+
+  geom_point(position=position_jitter(height=.15,width=.15))+
+  geom_line(aes(y=fullpoppredictNC1*3), size = 2)+
+  geom_line(aes(y=fullcondpredictNC1*3,group=SUB),alpha=.25)+scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+NC1 + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
 ```
 
 ```{r}
-anova(lm1c, lm1c.null)
+theme_set(theme_bw())
+exp2$fullpoppredictNC2<- predict(NC2glmmfull, 
+                           re.form=NA,type="response")
+exp2$fullcondpredictNC2<- predict(NC2glmmfull, 
+                           type="response")
+
+NC2 <- ggplot(exp2,aes(x=DAY,y=NC_errors,color=SEX))+
+  geom_point(position=position_jitter(height=.15,width=.15))+
+  geom_line(aes(y=fullpoppredictNC2*3), size = 2)+
+  geom_line(aes(y=fullcondpredictNC2*3,group=SUB),alpha=.25)+scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+NC2 + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
 ```
 
-### Sex had no effect on success p = 0.66
+```{r}
+theme_set(theme_bw())
+exp1$fullpoppredictP1<- predict(P1glmmfull, 
+                           re.form=NA,type="response")
+exp1$fullcondpredictP1<- predict(P1glmmfull, 
+                           type="response")
+
+P1 <- ggplot(exp1,aes(x=DAY,y=P_errors,color=SEX))+
+  geom_point(position=position_jitter(height=.15,width=.15))+
+  geom_line(aes(y=fullpoppredictP1), size = 2)+
+  geom_line(aes(y=fullcondpredictP1,group=SUB),alpha=.25)+scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+P1 + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
+```
+
+```{r}
+theme_set(theme_bw())
+exp2$fullpoppredictP2<- predict(P2glmmfull, 
+                           re.form=NA,type="response")
+exp2$fullcondpredictP2<- predict(P2glmmfull, 
+                           type="response")
+
+P2 <- ggplot(exp2,aes(x=DAY,y=P_errors,color=SEX))+
+  geom_point(position=position_jitter(height=.15,width=.15))+
+  geom_line(aes(y=fullpoppredictP2), size = 2)+
+  geom_line(aes(y=fullcondpredictP2,group=SUB),alpha=.25)+scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+P2 + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
+```
+
+
+```{r}
+
+exp1means <- read.csv("exp1means.csv", header = TRUE)
+
+MEANS <- ggplot(exp1means,aes(x=DAY, y=MEAN, group=SEX, color=SEX))+
+  geom_point()+geom_errorbar(aes(ymin=MEAN-SD, ymax=MEAN+SD), width=0.2, position=position_dodge(0.05)) +geom_line(aes(y=MEAN), size = 1.5) + scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+MEANS + scale_y_continuous(breaks = seq(0,1,0.1)) + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
+```
+
+```{r}
+
+exp2means <- read.csv("exp2means.csv", header = TRUE)
+
+MEANS <- ggplot(exp2means,aes(x=DAY, y=MEAN, group=SEX, color=SEX))+
+  geom_point()+geom_errorbar(aes(ymin=MEAN-SD, ymax=MEAN+SD), width=0.2, position=position_dodge(0.05)) +geom_line(aes(y=MEAN), size = 1.5) + scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+MEANS + scale_y_continuous(breaks = seq(0,1,0.1)) + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
+```
+
+```{r}
+exp0means <- read.csv("exp0means.csv", header = TRUE)
+
+MEANS <- ggplot(exp0means,aes(x=DAY, y=SUCCESS, group=SEX, color=SEX))+
+  geom_point()+geom_errorbar(aes(ymin=SUCCESS-SD.succ, ymax=SUCCESS+SD.succ), width=0.2, position=position_dodge(0.05)) +geom_line(aes(y=SUCCESS), size = 1.5) + scale_x_discrete(limit = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+MEANS + scale_y_continuous(breaks = seq(0,1,0.1)) + theme(panel.grid.minor = element_blank(), panel.background = element_rect(fill="gray95"), panel.grid.major = element_line(color = "white"), axis.text = element_text(size = "12", face = "bold"), axis.title = element_text(size = "22", face = "bold"), legend.title = element_text(size = "16", face = "bold"), legend.text = element_text(size = "12", face = "italic"))
+```
+
+# REANALYZING DATA WITH REPEATED-MEASURES ANOVA
+## to more directly compare to Liu 2017 which used that method in showing a sex difference in learning
+
+### dependent variables: SUCCESS, NC_errors, P_errors
+### two random effects: SUB and DAY
+### two within-subject fixed effects: SEX and CUE
+
+
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "/Users/rventura/Desktop/FROGDATA/frogmaze")
+```
+
+Used Excel to arcsine transform the success and NC_error data, since they were proportional daily means from 0 to 1. P_errors were not transformed.
+
+```{r}
+library(dplyr)
+exp1AST <- read.csv("exp1AST.csv", header = TRUE)
+exp1AST$DAY <- factor(exp1AST$DAY)
+exp2AST <- read.csv("exp2AST.csv", header = TRUE)
+exp2AST$DAY <- factor(exp2AST$DAY)
+exp1ASTmale <- read.csv("exp1ASTmale.csv", header = TRUE)
+exp1ASTmale$DAY <- factor(exp1ASTmale$DAY)
+exp1ASTfemale <- read.csv("exp1ASTfemale.csv", header = TRUE)
+exp1ASTfemale$DAY <- factor(exp1ASTfemale$DAY)
+```
+
+```{r}
+summary(aov(SUCCESS ~ SUB * DAY * SEX * CUE, data = exp1AST))
+```
+
+OK, so DAY and CUE have strong effects on success, while the relationship between DAY and SUCCESS depends on CUE.
+SEX has no real effect on anything,
+
+```{r}
+summary(aov(SUCCESS ~ SUB * DAY * SEX * CUE, data = exp2AST))
+```
+
+DAY and CUE have effects on SUCCESS (expected), as well as the relationship between DAY and SUCCESS depending on SUB (expected, different animals learn differently)
+
+```{r}
+exp1ANOVA <- aov(SUCCESS ~ DAY * SEX + Error(SUB / (DAY * SEX)), data=exp1AST)
+summary(exp1ANOVA)
+```
+
+All this really shows is that the interaction of DAY and SEX have no effect on SUCCESS
+
+```{r}
+exp1ANOVAmale <- aov(SUCCESS ~ DAY * CUE + Error(SUB / (DAY* CUE)), data=exp1ASTmale)
+summary(exp1ANOVAmale)
+```
+
+```{r}
+exp1ANOVAfemale <- aov(SUCCESS ~ DAY * CUE + Error(SUB / (DAY*CUE)), data=exp1ASTfemale)
+summary(exp1ANOVAfemale)
+```
+
+
+
+```{r}
+exp1cues <- aov(SUCCESS ~ DAY * CUE + Error(SUB/(DAY * CUE)), data=exp1AST)
+summary(exp1cues)
+```
+
+
+
+```{r}
+exp1cuessex <- aov(SUCCESS ~ CUE * SEX + Error(SUB/(CUE * SEX)), data=exp1AST)
+summary(exp1cuessex)
+```
+
+
+
+```{r}
+exp2ANOVA <- aov(SUCCESS ~ DAY * SEX + Error(SUB/(DAY * SEX)), data=exp2AST)
+summary(exp2ANOVA)
+```
+
+```{r}
+exp2cues <- aov(SUCCESS ~ DAY * CUE + Error(SUB/(DAY * CUE)), data=exp2AST)
+summary(exp2cues)
+```
+
+```{r}
+exp2cuessex <- aov(SUCCESS ~ CUE * SEX + Error(SUB/(CUE * SEX)), data=exp2AST)
+summary(exp2cuessex)
+```

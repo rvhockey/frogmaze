@@ -27,6 +27,46 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -82,12 +122,16 @@
 
 \begin{document}
 
-\section{DATA PROCESSING FOR MASTER'S
-THESIS}\label{data-processing-for-masters-thesis}
+\section{LEARNING IN TUNGARA FROGS: CAN THEY LEARN A
+MAZE?}\label{learning-in-tungara-frogs-can-they-learn-a-maze}
 
-\subsubsection{data from 2 experiments (two-choice maze) - experiment 1
+\subsection{initial hypothesis: females are better learners than males
+based on behavioral requirements for
+breeding.}\label{initial-hypothesis-females-are-better-learners-than-males-based-on-behavioral-requirements-for-breeding.}
+
+\subsubsection{data from 2 experiments (two-choice mazes) - experiment 1
 had 24 subjects and experiment 2 had 12
-subjects}\label{data-from-2-experiments-two-choice-maze---experiment-1-had-24-subjects-and-experiment-2-had-12-subjects}
+subjects}\label{data-from-2-experiments-two-choice-mazes---experiment-1-had-24-subjects-and-experiment-2-had-12-subjects}
 
 \subsubsection{subjects were trained daily 3 trials per
 day}\label{subjects-were-trained-daily-3-trials-per-day}
@@ -97,25 +141,2089 @@ to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3
 for each day), and position errors (no restricting
 parameters)}\label{data-collected-includes-success-0-or-1-for-each-trial-0-to-3-for-each-day-non-contingent-errors-0-or-1-for-each-trial-0-to-3-for-each-day-and-position-errors-no-restricting-parameters}
 
-\subsection{random effects include
-SUB}\label{random-effects-include-sub}
+\section{main relationships of
+interest}\label{main-relationships-of-interest}
 
-\subsection{fixed effects include SEX and
-DAY}\label{fixed-effects-include-sex-and-day}
+\subsubsection{how is success predicted by which day of training it
+occured
+on?}\label{how-is-success-predicted-by-which-day-of-training-it-occured-on}
 
-\subsubsection{first upload data for each
-experiment}\label{first-upload-data-for-each-experiment}
+\subsubsection{how is success predicted by
+sex?}\label{how-is-success-predicted-by-sex}
 
-exp1 \textless{}- read.csv(``exp1.csv'', header = TRUE) exp2
-\textless{}- read.csv(``exp2.csv'', header = TRUE)
+\subsubsection{how are errors predicted by
+day/sex?}\label{how-are-errors-predicted-by-daysex}
 
-\subsubsection{the model}\label{the-model}
+\subsubsection{how do errors vary with
+success?}\label{how-do-errors-vary-with-success}
 
-\section{the goal is to model success as a function of
-day}\label{the-goal-is-to-model-success-as-a-function-of-day}
+\subsection{dependent/response variables are SUCCESS, P\_errors and
+NC\_errors}\label{dependentresponse-variables-are-success-p_errors-and-nc_errors}
 
-glm \textless{}- glmer(SUCCESS \textasciitilde{} DAY + SEX +
-(1\textbar{}SUB), data = exp1))
+\subsection{random effect is SUB}\label{random-effect-is-sub}
+
+\subsection{fixed effect is SEX}\label{fixed-effect-is-sex}
+
+\section{first, I uploaded the data for each of the
+experiments}\label{first-i-uploaded-the-data-for-each-of-the-experiments}
+
+I've decided to use centered and scale time variables as it usually
+provides more stable fits with GLMM - thanksfor this tip James!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{exp1 <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp1.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{exp1a <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp1a.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{exp1b <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp1b.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{exp2 <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp2.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{exp2a <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp2a.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{exp1 <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(exp1,}\DataTypeTok{daycent=}\NormalTok{(DAY}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(DAY)}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(DAY)))}
+\NormalTok{exp1a <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(exp1a,}\DataTypeTok{daycent=}\NormalTok{(DAY}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(DAY)}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(DAY)))}
+\NormalTok{exp1b <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(exp1b,}\DataTypeTok{daycent=}\NormalTok{(DAY}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(DAY)}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(DAY)))}
+\NormalTok{exp2 <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(exp2,}\DataTypeTok{daycent=}\NormalTok{(DAY}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(DAY)}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(DAY)))}
+\NormalTok{exp2a <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(exp2a,}\DataTypeTok{daycent=}\NormalTok{(DAY}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(DAY)}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(DAY)))}
+\end{Highlighting}
+\end{Shaded}
+
+I also wanted to see what would happen if I took out the lowest
+performing frogs in each trial - the exp1a and exp2a datasets represent
+have three subjects (5, 13, and 24) and one subject (9) removed from
+them, respectively. The exp1b file has subjects 5 and 24 removed.
+Attempting to remove outliers who didn't learn seemed to make the models
+fit worse, so I've decided to use the original data with all subjects
+included after all.
+
+Now that I have my data uploaded\ldots{}I first needed to decided
+whether or not to use the random slope model or the random intercept
+model for my particular random effects. This was done with SUCCESS data
+first\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(lme4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SUCCESS1glmmfullrandomslope <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(daycent}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{SUCCESS1glmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\KeywordTok{anova}\NormalTok{(SUCCESS1glmmfullrandomslope,SUCCESS1glmmfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp1
+## Models:
+## SUCCESS1glmmfull: cbind(SUCCESS, 3 - SUCCESS) ~ daycent * SEX + (1 | SUB)
+## SUCCESS1glmmfullrandomslope: cbind(SUCCESS, 3 - SUCCESS) ~ daycent * SEX + (daycent | SUB)
+##                             Df    AIC    BIC  logLik deviance Chisq Chi Df
+## SUCCESS1glmmfull             5 620.63 638.03 -305.31   610.63             
+## SUCCESS1glmmfullrandomslope  7 623.63 647.99 -304.81   609.63     1      2
+##                             Pr(>Chisq)
+## SUCCESS1glmmfull                      
+## SUCCESS1glmmfullrandomslope     0.6065
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SUCCESS2glmmfullrandomslope <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(daycent}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{SUCCESS2glmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\KeywordTok{anova}\NormalTok{(SUCCESS2glmmfullrandomslope,SUCCESS2glmmfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp2
+## Models:
+## SUCCESS2glmmfull: cbind(SUCCESS, 3 - SUCCESS) ~ daycent * SEX + (1 | SUB)
+## SUCCESS2glmmfullrandomslope: cbind(SUCCESS, 3 - SUCCESS) ~ daycent * SEX + (daycent | SUB)
+##                             Df    AIC    BIC  logLik deviance  Chisq
+## SUCCESS2glmmfull             5 292.59 306.52 -141.29   282.59       
+## SUCCESS2glmmfullrandomslope  7 286.42 305.93 -136.21   272.42 10.169
+##                             Chi Df Pr(>Chisq)   
+## SUCCESS2glmmfull                                
+## SUCCESS2glmmfullrandomslope      2   0.006192 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+Then, I did the same thing for my non-contingent errors\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NC1glmmfullrandomslope <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(daycent}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{NC1glmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\KeywordTok{anova}\NormalTok{(NC1glmmfullrandomslope,NC1glmmfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp1
+## Models:
+## NC1glmmfull: cbind(NC_errors, 3 - NC_errors) ~ daycent * SEX + (1 | SUB)
+## NC1glmmfullrandomslope: cbind(NC_errors, 3 - NC_errors) ~ daycent * SEX + (daycent | 
+## NC1glmmfullrandomslope:     SUB)
+##                        Df    AIC   BIC  logLik deviance  Chisq Chi Df
+## NC1glmmfull             5 530.80 548.2 -260.40   520.80              
+## NC1glmmfullrandomslope  7 534.33 558.7 -260.17   520.33 0.4648      2
+##                        Pr(>Chisq)
+## NC1glmmfull                      
+## NC1glmmfullrandomslope     0.7926
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NC2glmmfullrandomslope <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(daycent}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{NC2glmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\KeywordTok{anova}\NormalTok{(NC2glmmfullrandomslope,NC2glmmfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp2
+## Models:
+## NC2glmmfull: cbind(NC_errors, 3 - NC_errors) ~ daycent * SEX + (1 | SUB)
+## NC2glmmfullrandomslope: cbind(NC_errors, 3 - NC_errors) ~ daycent * SEX + (daycent | 
+## NC2glmmfullrandomslope:     SUB)
+##                        Df    AIC    BIC  logLik deviance  Chisq Chi Df
+## NC2glmmfull             5 206.93 220.86 -98.462   196.93              
+## NC2glmmfullrandomslope  7 210.69 230.20 -98.345   196.69 0.2354      2
+##                        Pr(>Chisq)
+## NC2glmmfull                      
+## NC2glmmfullrandomslope     0.8889
+\end{verbatim}
+
+With the AIC and BIC values so close to each other for each model, these
+analyses determined that it is sufficient to use random intercepts for
+my random effects (1 \textbar{} SUB) for both SUCCESS and NC\_errors to
+make the models a bit simpler. Lastly, I want to run this test for my
+third dependent variable of interest, P\_errors\ldots{}
+
+\subsubsection{however, P\_errors can not be run using the binomal error
+model that was used for SUCCESS and NC\_errors, so I used the poisson
+model, which is better for various integers (poisson would be better to
+use than gamma in this situation,
+correct?)}\label{however-p_errors-can-not-be-run-using-the-binomal-error-model-that-was-used-for-success-and-nc_errors-so-i-used-the-poisson-model-which-is-better-for-various-integers-poisson-would-be-better-to-use-than-gamma-in-this-situation-correct}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P1glmmfullranslope <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(daycent}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P1glmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{poisson)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0011556 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(P1glmmfullranslope,P1glmmfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp1
+## Models:
+## P1glmmfull: P_errors ~ daycent * SEX + (1 | SUB)
+## P1glmmfullranslope: P_errors ~ daycent * SEX + (daycent | SUB)
+##                    Df    AIC    BIC  logLik deviance  Chisq Chi Df
+## P1glmmfull          5 872.99 890.40 -431.50   862.99              
+## P1glmmfullranslope  7 866.86 891.22 -426.43   852.86 10.136      2
+##                    Pr(>Chisq)   
+## P1glmmfull                      
+## P1glmmfullranslope   0.006294 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P2glmmfullranslope <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(daycent}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P2glmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{poisson)}
+\KeywordTok{anova}\NormalTok{(P2glmmfullranslope,P2glmmfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp2
+## Models:
+## P2glmmfull: P_errors ~ daycent * SEX + (1 | SUB)
+## P2glmmfullranslope: P_errors ~ daycent * SEX + (daycent | SUB)
+##                    Df    AIC    BIC  logLik deviance  Chisq Chi Df
+## P2glmmfull          5 371.79 385.73 -180.90   361.79              
+## P2glmmfullranslope  7 369.13 388.64 -177.56   355.13 6.6653      2
+##                    Pr(>Chisq)  
+## P2glmmfull                     
+## P2glmmfullranslope     0.0357 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P1aglmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1a,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P2aglmmfull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{*}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2a,}\DataTypeTok{family=}\NormalTok{poisson)}
+\end{Highlighting}
+\end{Shaded}
+
+Given how close the AIC and BIC values are for both, I believe this
+means that the fit is fairly equal (and bad\ldots{}) for each model,
+depsite the p value being much smaller than it was for the first two
+models. Not quite sure what this means, but I think it means that these
+two models are VERY different from each other.
+
+\subsubsection{Now, I can compare all of the models! My full model looks
+at the INTERACTION of day and sex; another model (add) treats sex as a
+fixed effect independent of day; a third model removes sex completely
+and looks as how success varies with day (day); and lastly a null model
+removes all covariates to examine the effect of their presence
+(null.}\label{now-i-can-compare-all-of-the-models-my-full-model-looks-at-the-interaction-of-day-and-sex-another-model-add-treats-sex-as-a-fixed-effect-independent-of-day-a-third-model-removes-sex-completely-and-looks-as-how-success-varies-with-day-day-and-lastly-a-null-model-removes-all-covariates-to-examine-the-effect-of-their-presence-null.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SUCCESS1glmmadd <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{SUCCESS1glmmday <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{SUCCESS1glmmnull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+
+\KeywordTok{anova}\NormalTok{(SUCCESS1glmmfull, SUCCESS1glmmadd, SUCCESS1glmmday, SUCCESS1glmmnull, }\DataTypeTok{test=}\StringTok{"Chisq"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp1
+## Models:
+## SUCCESS1glmmnull: cbind(SUCCESS, 3 - SUCCESS) ~ (1 | SUB)
+## SUCCESS1glmmday: cbind(SUCCESS, 3 - SUCCESS) ~ daycent + (1 | SUB)
+## SUCCESS1glmmadd: cbind(SUCCESS, 3 - SUCCESS) ~ daycent + SEX + (1 | SUB)
+## SUCCESS1glmmfull: cbind(SUCCESS, 3 - SUCCESS) ~ daycent * SEX + (1 | SUB)
+##                  Df    AIC    BIC  logLik deviance   Chisq Chi Df
+## SUCCESS1glmmnull  2 663.41 670.37 -329.70   659.41               
+## SUCCESS1glmmday   3 620.50 630.94 -307.25   614.50 44.9128      1
+## SUCCESS1glmmadd   4 622.26 636.18 -307.13   614.26  0.2374      1
+## SUCCESS1glmmfull  5 620.63 638.03 -305.31   610.63  3.6317      1
+##                  Pr(>Chisq)    
+## SUCCESS1glmmnull               
+## SUCCESS1glmmday    2.06e-11 ***
+## SUCCESS1glmmadd     0.62613    
+## SUCCESS1glmmfull    0.05669 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+This shows some small evidence that there is an interaction between sex
+and day (frogs from different sexes have different trends in their
+abilities). The p-value here is .057, which is borderline significant
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SUCCESS2glmmadd <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{SUCCESS2glmmday <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{SUCCESS2glmmnull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(SUCCESS,}\DecValTok{3}\OperatorTok{-}\NormalTok{SUCCESS) }\OperatorTok{~}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+
+\KeywordTok{anova}\NormalTok{(SUCCESS2glmmfull, SUCCESS2glmmadd, SUCCESS2glmmday, SUCCESS2glmmnull, }\DataTypeTok{test=}\StringTok{"Chisq"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp2
+## Models:
+## SUCCESS2glmmnull: cbind(SUCCESS, 3 - SUCCESS) ~ (1 | SUB)
+## SUCCESS2glmmday: cbind(SUCCESS, 3 - SUCCESS) ~ daycent + (1 | SUB)
+## SUCCESS2glmmadd: cbind(SUCCESS, 3 - SUCCESS) ~ daycent + SEX + (1 | SUB)
+## SUCCESS2glmmfull: cbind(SUCCESS, 3 - SUCCESS) ~ daycent * SEX + (1 | SUB)
+##                  Df    AIC    BIC  logLik deviance   Chisq Chi Df
+## SUCCESS2glmmnull  2 304.70 310.28 -150.35   300.70               
+## SUCCESS2glmmday   3 288.88 297.25 -141.44   282.88 17.8190      1
+## SUCCESS2glmmadd   4 290.88 302.02 -141.44   282.88  0.0078      1
+## SUCCESS2glmmfull  5 292.59 306.52 -141.29   282.59  0.2886      1
+##                  Pr(>Chisq)    
+## SUCCESS2glmmnull               
+## SUCCESS2glmmday   2.429e-05 ***
+## SUCCESS2glmmadd      0.9298    
+## SUCCESS2glmmfull     0.5911    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+This result shows no evidence for their being an interaction between sex
+and day for my second experiment.
+
+\subsubsection{Now to do the same thing for
+NC\_errors\ldots{}}\label{now-to-do-the-same-thing-for-nc_errors}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NC1glmmadd <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{NC1glmmday <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{NC1glmmnull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{binomial)}
+
+\KeywordTok{anova}\NormalTok{(NC1glmmfull, NC1glmmadd, NC1glmmday, NC1glmmnull, }\DataTypeTok{test=}\StringTok{"Chisq"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp1
+## Models:
+## NC1glmmnull: cbind(NC_errors, 3 - NC_errors) ~ (1 | SUB)
+## NC1glmmday: cbind(NC_errors, 3 - NC_errors) ~ daycent + (1 | SUB)
+## NC1glmmadd: cbind(NC_errors, 3 - NC_errors) ~ daycent + SEX + (1 | SUB)
+## NC1glmmfull: cbind(NC_errors, 3 - NC_errors) ~ daycent * SEX + (1 | SUB)
+##             Df    AIC    BIC  logLik deviance   Chisq Chi Df Pr(>Chisq)
+## NC1glmmnull  2 562.20 569.16 -279.10   558.20                          
+## NC1glmmday   3 528.57 539.01 -261.29   522.57 35.6317      1  2.384e-09
+## NC1glmmadd   4 530.56 544.49 -261.28   522.56  0.0075      1     0.9308
+## NC1glmmfull  5 530.80 548.20 -260.40   520.80  1.7662      1     0.1839
+##                
+## NC1glmmnull    
+## NC1glmmday  ***
+## NC1glmmadd     
+## NC1glmmfull    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NC2glmmadd <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{NC2glmmday <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{NC2glmmnull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(NC_errors,}\DecValTok{3}\OperatorTok{-}\NormalTok{NC_errors) }\OperatorTok{~}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{binomial)}
+
+\KeywordTok{anova}\NormalTok{(NC2glmmfull, NC2glmmadd, NC2glmmday, NC2glmmnull, }\DataTypeTok{test=}\StringTok{"Chisq"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp2
+## Models:
+## NC2glmmnull: cbind(NC_errors, 3 - NC_errors) ~ (1 | SUB)
+## NC2glmmday: cbind(NC_errors, 3 - NC_errors) ~ daycent + (1 | SUB)
+## NC2glmmadd: cbind(NC_errors, 3 - NC_errors) ~ daycent + SEX + (1 | SUB)
+## NC2glmmfull: cbind(NC_errors, 3 - NC_errors) ~ daycent * SEX + (1 | SUB)
+##             Df    AIC    BIC   logLik deviance   Chisq Chi Df Pr(>Chisq)
+## NC2glmmnull  2 253.00 258.58 -124.500   249.00                          
+## NC2glmmday   3 203.91 212.28  -98.956   197.91 51.0888      1  8.828e-13
+## NC2glmmadd   4 205.39 216.54  -98.696   197.39  0.5210      1     0.4704
+## NC2glmmfull  5 206.93 220.86  -98.462   196.93  0.4665      1     0.4946
+##                
+## NC2glmmnull    
+## NC2glmmday  ***
+## NC2glmmadd     
+## NC2glmmfull    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+Both of these analyses suggest that there is no interaction between sex
+and NC\_errors.
+
+\subsubsection{Lastly, P\_errors}\label{lastly-p_errors}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P1glmmadd <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P1glmmday <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P1glmmnull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp1,}\DataTypeTok{family=}\NormalTok{poisson)}
+
+\KeywordTok{anova}\NormalTok{(P1glmmfull, P1glmmadd, P1glmmday, P1glmmnull, }\DataTypeTok{test=}\StringTok{"Chisq"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp1
+## Models:
+## P1glmmnull: P_errors ~ (1 | SUB)
+## P1glmmday: P_errors ~ daycent + (1 | SUB)
+## P1glmmadd: P_errors ~ daycent + SEX + (1 | SUB)
+## P1glmmfull: P_errors ~ daycent * SEX + (1 | SUB)
+##            Df    AIC    BIC  logLik deviance   Chisq Chi Df Pr(>Chisq)    
+## P1glmmnull  2 878.91 885.88 -437.46   874.91                              
+## P1glmmday   3 869.83 880.28 -431.92   863.83 11.0795      1  0.0008729 ***
+## P1glmmadd   4 871.16 885.09 -431.58   863.16  0.6719      1  0.4123886    
+## P1glmmfull  5 872.99 890.40 -431.50   862.99  0.1695      1  0.6805362    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P2glmmadd <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{SEX }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P2glmmday <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{daycent }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{poisson)}
+\NormalTok{P2glmmnull <-}\StringTok{ }\KeywordTok{glmer}\NormalTok{(P_errors }\OperatorTok{~}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{|}\NormalTok{SUB), }\DataTypeTok{data =}\NormalTok{ exp2,}\DataTypeTok{family=}\NormalTok{poisson)}
+
+\KeywordTok{anova}\NormalTok{(P2glmmfull, P2glmmadd, P2glmmday, P2glmmnull, }\DataTypeTok{test=}\StringTok{"Chisq"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Data: exp2
+## Models:
+## P2glmmnull: P_errors ~ (1 | SUB)
+## P2glmmday: P_errors ~ daycent + (1 | SUB)
+## P2glmmadd: P_errors ~ daycent + SEX + (1 | SUB)
+## P2glmmfull: P_errors ~ daycent * SEX + (1 | SUB)
+##            Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)   
+## P2glmmnull  2 374.15 379.73 -185.08   370.15                            
+## P2glmmday   3 369.11 377.47 -181.56   363.11 7.0449      1   0.007949 **
+## P2glmmadd   4 369.92 381.07 -180.96   361.92 1.1914      1   0.275054   
+## P2glmmfull  5 371.79 385.73 -180.90   361.79 0.1254      1   0.723227   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+This shows that there is also no interaction between sex and P\_error,
+but that P\_errors vary significantly with the day for both experiments
+- could I possibly use this to say that if P\_errors decrease
+signficantly by day and if SUCCESS increases significantly by day, that
+the frogs as a whole learned from this experiment??
+
+\section{Another way we can try to understand what these models tell us
+is by simply generating bootstrap confidence
+intervals.}\label{another-way-we-can-try-to-understand-what-these-models-tell-us-is-by-simply-generating-bootstrap-confidence-intervals.}
+
+\subsubsection{As the name implies, this process uses the computed model
+data itself to estimate the variation of statistics - essentially using
+the computed data to come up with confidence
+intervals.}\label{as-the-name-implies-this-process-uses-the-computed-model-data-itself-to-estimate-the-variation-of-statistics---essentially-using-the-computed-data-to-come-up-with-confidence-intervals.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\NormalTok{bootconf <-}\StringTok{ }\KeywordTok{confint}\NormalTok{(SUCCESS1glmmfull,}\DataTypeTok{method=}\StringTok{"boot"}\NormalTok{,}\DataTypeTok{nsim=}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Computing bootstrap confidence intervals ...
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0168774 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0164901 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0165298 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.021751 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0155816 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0211349 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00105986 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0223567 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00386211 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00100899 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0177264 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bootconf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   2.5 %       97.5 %
+## .sig01        0.3329639  0.866667710
+## (Intercept)  -1.4695813 -0.393942245
+## daycent       0.1658979  0.326569307
+## SEXM         -0.1712585  1.263868904
+## daycent:SEXM -0.2202503  0.007656257
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\NormalTok{bootconf <-}\StringTok{ }\KeywordTok{confint}\NormalTok{(SUCCESS2glmmfull,}\DataTypeTok{method=}\StringTok{"boot"}\NormalTok{,}\DataTypeTok{nsim=}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Computing bootstrap confidence intervals ...
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0159956 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0227025 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0136334 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0163831 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00142349 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0107006 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0114433 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0165767 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.008785 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00117713 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.013026 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0125571 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00749771 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00144338 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00153821 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0020208 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0180921 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.024572 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0155976 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bootconf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      2.5 %     97.5 %
+## .sig01        3.390255e-06  0.8101804
+## (Intercept)  -2.085402e+00 -0.6366033
+## daycent       4.147421e-02  0.2778558
+## SEXM         -1.245648e+00  0.8446987
+## daycent:SEXM -1.304753e-01  0.2070392
+\end{verbatim}
+
+\subsubsection{This comes to a very similar, unfortunately ambiguous
+result.}\label{this-comes-to-a-very-similar-unfortunately-ambiguous-result.}
+
+\subsection{Regardless, there is strong evidence that there is a change
+in the success rate through time and then slope is positive, leading to
+the conclusion that frogs are getting better in time. The interaction
+term would suggest, if significant, that males learn more slowly than
+females.}\label{regardless-there-is-strong-evidence-that-there-is-a-change-in-the-success-rate-through-time-and-then-slope-is-positive-leading-to-the-conclusion-that-frogs-are-getting-better-in-time.-the-interaction-term-would-suggest-if-significant-that-males-learn-more-slowly-than-females.}
+
+\section{We can do the same thing for NC\_errors as
+well\ldots{}}\label{we-can-do-the-same-thing-for-nc_errors-as-well}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\NormalTok{bootconf <-}\StringTok{ }\KeywordTok{confint}\NormalTok{(NC1glmmfull,}\DataTypeTok{method=}\StringTok{"boot"}\NormalTok{,}\DataTypeTok{nsim=}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Computing bootstrap confidence intervals ...
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.128954 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00315928 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0231425 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00124692 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0258766 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0190982 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00108052 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0212206 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bootconf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    2.5 %     97.5 %
+## .sig01        0.44510732  1.0932722
+## (Intercept)  -1.08089406  0.1285544
+## daycent      -0.34791822 -0.1449100
+## SEXM         -1.13037678  0.5861909
+## daycent:SEXM -0.03924377  0.2278232
+\end{verbatim}
+
+For experiment 1, it seems that there is strong evidence that the
+decrease in NC\_errors is significant and negative, based on the model
+ANOVA and these bootstrap confidence intervals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\NormalTok{bootconf <-}\StringTok{ }\KeywordTok{confint}\NormalTok{(NC2glmmfull,}\DataTypeTok{method=}\StringTok{"boot"}\NormalTok{,}\DataTypeTok{nsim=}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Computing bootstrap confidence intervals ...
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0247132 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0251921 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0215523 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0243809 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0203674 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0144993 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0250504 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0228481 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0202427 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00145026 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0184132 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.025683 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0199906 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0238521 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.02372 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0220664 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0200732 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0221137 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0211275 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0186918 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0245802 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0243605 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0224123 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0174547 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0275114 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0195503 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bootconf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   2.5 %     97.5 %
+## .sig01        0.3362997  1.6725883
+## (Intercept)  -1.9631716  0.3125134
+## daycent      -0.7442877 -0.2777528
+## SEXM         -1.2944339  1.8993449
+## daycent:SEXM -0.1696709  0.4232826
+\end{verbatim}
+
+A similar result is seen for experiment 2 NC\_errors - the slope is
+negative and significant, and evidence suggest frogs are making fewer
+NC\_errors over time.
+
+\section{P\_error bootstrapping\ldots{}}\label{p_error-bootstrapping}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\NormalTok{bootconf <-}\StringTok{ }\KeywordTok{confint}\NormalTok{(P1glmmfull,}\DataTypeTok{method=}\StringTok{"boot"}\NormalTok{,}\DataTypeTok{nsim=}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Computing bootstrap confidence intervals ...
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0018014 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.029158 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0271536 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0254617 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0254106 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0212181 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0300388 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.024085 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0324246 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0250077 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0229923 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0270156 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00147996 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00102749 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00261247 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0269778 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00125751 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0256878 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00131793 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00101968 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0217811 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00133438 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0288367 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0246017 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00105756 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0278278 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00119803 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0285873 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0230871 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0236013 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0277011 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00107735 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0274261 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0233047 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00113963 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00100417 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0257858 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0261353 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0236599 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00129139 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0246024 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0294133 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0248965 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0193529 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.02138 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0013785 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0252757 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00348144 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bootconf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    2.5 %     97.5 %
+## .sig01        0.14716685 0.46786852
+## (Intercept)  -0.02244658 0.60963713
+## daycent       0.01793050 0.11124946
+## SEXM         -0.53695221 0.33772882
+## daycent:SEXM -0.08332505 0.05812018
+\end{verbatim}
+
+Unfortunately this result doesn't seem to reveal anything significant -
+although P\_errors do vary significantly by day as determined by the
+ANOVA above, evidence suggests that the slope is positive.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\NormalTok{bootconf <-}\StringTok{ }\KeywordTok{confint}\NormalTok{(P2glmmfull,}\DataTypeTok{method=}\StringTok{"boot"}\NormalTok{,}\DataTypeTok{nsim=}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Computing bootstrap confidence intervals ...
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.15655 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0185092 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0182919 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0201293 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00353477 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00215129 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00272206 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0185329 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0184573 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00232485 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00114098 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0192998 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00170539 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00281854 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0475374 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00209823 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0181403 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0178864 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00383177 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00187243 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.017746 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.018836 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0186213 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0150205 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0136483 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00156727 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0145968 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00245614 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0212931 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0096323 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 2 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge: degenerate Hessian with 1 negative
+## eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00107783 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.0190203 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control
+## $checkConv, : Model failed to converge with max|grad| = 0.00109175 (tol =
+## 0.001, component 1)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bootconf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      2.5 %    97.5 %
+## .sig01        3.061080e-06 0.5698387
+## (Intercept)  -8.525693e-01 0.2538298
+## daycent      -2.189703e-02 0.1551001
+## SEXM         -5.055166e-01 1.0011457
+## daycent:SEXM -9.574260e-02 0.1378023
+\end{verbatim}
+
+\section{THIS IS ALL I'VE DONE SO
+FAR\ldots{}\ldots{}}\label{this-is-all-ive-done-so-far}
+
+\subsection{below is me exploring the bootstrap confidence intervals
+with possible outliers removed from the datasets, but as noted above,
+they don't seem to improve
+anything.}\label{below-is-me-exploring-the-bootstrap-confidence-intervals-with-possible-outliers-removed-from-the-datasets-but-as-noted-above-they-dont-seem-to-improve-anything.}
+
+\section{Graphing the data}\label{graphing-the-data}
+
+We can plot the predictions of the model with the data as below. Note I
+have added two types of predictions to the data frame, one, the
+\texttt{fullpoppredict} is the population level predictions (average of
+all the individuals, one trendline for each sex), while
+\texttt{fullcondpredict} is the prediction at the level of each of the
+individuals (one trendline for each individual).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{exp1}\OperatorTok{$}\NormalTok{fullpoppredictS1<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(SUCCESS1glmmfull, }
+                           \DataTypeTok{re.form=}\OtherTok{NA}\NormalTok{,}\DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{exp1}\OperatorTok{$}\NormalTok{fullcondpredictS1<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(SUCCESS1glmmfull, }
+                           \DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+
+\NormalTok{SUCC1 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp1,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY,}\DataTypeTok{y=}\NormalTok{SUCCESS,}\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\DataTypeTok{height=}\NormalTok{.}\DecValTok{15}\NormalTok{,}\DataTypeTok{width=}\NormalTok{.}\DecValTok{15}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullpoppredictS1}\OperatorTok{*}\DecValTok{3}\NormalTok{), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullcondpredictS1}\OperatorTok{*}\DecValTok{3}\NormalTok{,}\DataTypeTok{group=}\NormalTok{SUB),}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{25}\NormalTok{)}\OperatorTok{+}\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{SUCC1 }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{exp2}\OperatorTok{$}\NormalTok{fullpoppredictS2 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(SUCCESS2glmmfull, }
+                           \DataTypeTok{re.form=}\OtherTok{NA}\NormalTok{,}\DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{exp2}\OperatorTok{$}\NormalTok{fullcondpredictS2 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(SUCCESS2glmmfull, }
+                           \DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+
+\NormalTok{SUCC2 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp2,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY,}\DataTypeTok{y=}\NormalTok{SUCCESS,}\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\DataTypeTok{height=}\NormalTok{.}\DecValTok{1}\NormalTok{,}\DataTypeTok{width=}\NormalTok{.}\DecValTok{1}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullpoppredictS2}\OperatorTok{*}\DecValTok{3}\NormalTok{), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullcondpredictS2}\OperatorTok{*}\DecValTok{3}\NormalTok{,}\DataTypeTok{group=}\NormalTok{SUB),}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{25}\NormalTok{)}\OperatorTok{+}\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{SUCC2 }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{exp1}\OperatorTok{$}\NormalTok{fullpoppredictNC1<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(NC1glmmfull, }
+                           \DataTypeTok{re.form=}\OtherTok{NA}\NormalTok{,}\DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{exp1}\OperatorTok{$}\NormalTok{fullcondpredictNC1<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(NC1glmmfull, }
+                           \DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+
+\NormalTok{NC1 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp1,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY,}\DataTypeTok{y=}\NormalTok{NC_errors,}\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\DataTypeTok{height=}\NormalTok{.}\DecValTok{15}\NormalTok{,}\DataTypeTok{width=}\NormalTok{.}\DecValTok{15}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullpoppredictNC1}\OperatorTok{*}\DecValTok{3}\NormalTok{), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullcondpredictNC1}\OperatorTok{*}\DecValTok{3}\NormalTok{,}\DataTypeTok{group=}\NormalTok{SUB),}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{25}\NormalTok{)}\OperatorTok{+}\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{NC1 }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{exp2}\OperatorTok{$}\NormalTok{fullpoppredictNC2<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(NC2glmmfull, }
+                           \DataTypeTok{re.form=}\OtherTok{NA}\NormalTok{,}\DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{exp2}\OperatorTok{$}\NormalTok{fullcondpredictNC2<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(NC2glmmfull, }
+                           \DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+
+\NormalTok{NC2 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp2,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY,}\DataTypeTok{y=}\NormalTok{NC_errors,}\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\DataTypeTok{height=}\NormalTok{.}\DecValTok{15}\NormalTok{,}\DataTypeTok{width=}\NormalTok{.}\DecValTok{15}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullpoppredictNC2}\OperatorTok{*}\DecValTok{3}\NormalTok{), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullcondpredictNC2}\OperatorTok{*}\DecValTok{3}\NormalTok{,}\DataTypeTok{group=}\NormalTok{SUB),}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{25}\NormalTok{)}\OperatorTok{+}\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{NC2 }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-27-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{exp1}\OperatorTok{$}\NormalTok{fullpoppredictP1<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(P1glmmfull, }
+                           \DataTypeTok{re.form=}\OtherTok{NA}\NormalTok{,}\DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{exp1}\OperatorTok{$}\NormalTok{fullcondpredictP1<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(P1glmmfull, }
+                           \DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+
+\NormalTok{P1 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp1,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY,}\DataTypeTok{y=}\NormalTok{P_errors,}\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\DataTypeTok{height=}\NormalTok{.}\DecValTok{15}\NormalTok{,}\DataTypeTok{width=}\NormalTok{.}\DecValTok{15}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullpoppredictP1), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullcondpredictP1,}\DataTypeTok{group=}\NormalTok{SUB),}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{25}\NormalTok{)}\OperatorTok{+}\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{P1 }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{exp2}\OperatorTok{$}\NormalTok{fullpoppredictP2<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(P2glmmfull, }
+                           \DataTypeTok{re.form=}\OtherTok{NA}\NormalTok{,}\DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{exp2}\OperatorTok{$}\NormalTok{fullcondpredictP2<-}\StringTok{ }\KeywordTok{predict}\NormalTok{(P2glmmfull, }
+                           \DataTypeTok{type=}\StringTok{"response"}\NormalTok{)}
+
+\NormalTok{P2 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp2,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY,}\DataTypeTok{y=}\NormalTok{P_errors,}\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_jitter}\NormalTok{(}\DataTypeTok{height=}\NormalTok{.}\DecValTok{15}\NormalTok{,}\DataTypeTok{width=}\NormalTok{.}\DecValTok{15}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullpoppredictP2), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{fullcondpredictP2,}\DataTypeTok{group=}\NormalTok{SUB),}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{25}\NormalTok{)}\OperatorTok{+}\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{P2 }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{exp1means <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp1means.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{MEANS <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp1means,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY, }\DataTypeTok{y=}\NormalTok{MEAN, }\DataTypeTok{group=}\NormalTok{SEX, }\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\NormalTok{MEAN}\OperatorTok{-}\NormalTok{SD, }\DataTypeTok{ymax=}\NormalTok{MEAN}\OperatorTok{+}\NormalTok{SD), }\DataTypeTok{width=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.05}\NormalTok{)) }\OperatorTok{+}\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{MEAN), }\DataTypeTok{size =} \FloatTok{1.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{MEANS }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.1}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-30-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{exp2means <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"exp2means.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{MEANS <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(exp2means,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{DAY, }\DataTypeTok{y=}\NormalTok{MEAN, }\DataTypeTok{group=}\NormalTok{SEX, }\DataTypeTok{color=}\NormalTok{SEX))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}\OperatorTok{+}\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\NormalTok{MEAN}\OperatorTok{-}\NormalTok{SD, }\DataTypeTok{ymax=}\NormalTok{MEAN}\OperatorTok{+}\NormalTok{SD), }\DataTypeTok{width=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.05}\NormalTok{)) }\OperatorTok{+}\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{MEAN), }\DataTypeTok{size =} \FloatTok{1.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limit =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{, }\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{, }\StringTok{"7"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"9"}\NormalTok{, }\StringTok{"10"}\NormalTok{))}
+\NormalTok{MEANS }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.1}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"gray95"}\NormalTok{), }\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"white"}\NormalTok{), }\DataTypeTok{axis.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{axis.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"22"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"16"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"bold"}\NormalTok{), }\DataTypeTok{legend.text =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \StringTok{"12"}\NormalTok{, }\DataTypeTok{face =} \StringTok{"italic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FROGDATA_files/figure-latex/unnamed-chunk-31-1.pdf}
 
 
 \end{document}

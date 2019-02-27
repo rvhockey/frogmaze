@@ -1,0 +1,51 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# LEARNING IN TUNGARA FROGS: CAN THEY LEARN A MAZE? 
+## initial hypothesis: females are better learners than males based on behavioral requirements for breeding.
+### data from 2 experiments (two-choice mazes) - experiment 1 had 24 subjects and experiment 2 had 12 subjects
+### subjects were trained daily 3 trials per day
+### data collected includes success (0 or 1 for each trial, 0 to 3 for each day), non-contingent errors (0 or 1 for each trial, 0 to 3 for each day), and position errors (no restricting parameters)
+
+# main relationships of interest
+### how is success predicted by which day of training it occured on?
+### how is success predicted by sex?
+### how are errors predicted by day/sex?
+### how do errors vary with success?
+
+## dependent/response variables are SUCCESS, P_errors and NC_errors ##
+## random effect is SUB ##
+## fixed effect is SEX ##
+
+# first, I uploaded the data for each of the experiments
+
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "/Users/rventura/Desktop/FROGDATA/frogmaze")
+```
+
+I've decided to use centered and scale time variables as it usually provides more stable fits with GLMM - thanksfor this tip James!
+
+```{r}
+
+library(dplyr)
+exp0 <- read.csv("YLexp0byday.csv", header = TRUE)
+exp1 <- read.csv("exp1.csv", header = TRUE)
+exp1males <- read.csv("exp1males.csv", header = TRUE)
+exp1females <- read.csv("exp1females.csv", header = TRUE)
+exp1a <- read.csv("exp1a.csv", header = TRUE)
+exp1b <- read.csv("exp1b.csv", header = TRUE)
+exp2 <- read.csv("exp2.csv", header = TRUE)
+exp2a <- read.csv("exp2a.csv", header = TRUE)
+exp0 <- mutate(exp0,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1 <- mutate(exp1,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1males <- mutate(exp1males,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1females <- mutate(exp1females,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1a <- mutate(exp1a,daycent=(DAY-mean(DAY))/sd(DAY))
+exp1b <- mutate(exp1b,daycent=(DAY-mean(DAY))/sd(DAY))
+exp2 <- mutate(exp2,daycent=(DAY-mean(DAY))/sd(DAY))
+exp2a <- mutate(exp2a,daycent=(DAY-mean(DAY))/sd(DAY))
+
+```
